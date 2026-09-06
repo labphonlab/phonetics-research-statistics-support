@@ -63,8 +63,12 @@ def main():
             el = time.time() - t0
             err = r.stderr
             if r.returncode != 0:
-                line = next((l for l in err.split("\n")
-                             if l.startswith("Error") or "エラー" in l), err.strip()[:150])
+                # 最初の Error 行を拾うと誤診する。try() で囲んだ意図的な
+                # エラー例示が先に現れ、本当に止まった箇所を隠すため。
+                # 実行を止めたのは最後のエラーなので、末尾から探す。
+                errs = [l for l in err.split("\n")
+                        if l.startswith("Error") or l.startswith("エラー")]
+                line = errs[-1] if errs else err.strip().split("\n")[-1][:150]
                 fail.append((p.name, line[:150]))
                 print(f"  ✗ {p.name} ({el:.0f}s): {line[:130]}")
             else:
@@ -72,6 +76,20 @@ def main():
                 print(f"  ✓ {p.name} ({el:.0f}s)")
 
     print(f"\n成功 {len(ok)} / 失敗 {len(fail)} / 時間切れ {len(timeout)}")
+
+    # 無条件の install.packages は、実行のたびに再導入が走って待ち時間になる。
+    # requireNamespace で守られているかを見る。
+    print("\nパッケージ導入の書き方")
+    for p in sorted(ROOT.glob("notebooks/*.ipynb")):
+        nb = json.loads(p.read_text())
+        src = "\n".join("".join(c.get("source", []))
+                        for c in nb["cells"] if c["cell_type"] == "code")
+        lines = [l for l in src.split("\n")
+                 if "install.packages(" in l and not l.strip().startswith("#")]
+        bare = [l for l in lines if "requireNamespace" not in l]
+        if bare:
+            print(f"  ⚠ {p.name}: 無条件の導入が {len(bare)} 箇所"
+                  f"（守られているもの {len(lines) - len(bare)} 箇所）")
     return 1 if fail else 0
 
 
