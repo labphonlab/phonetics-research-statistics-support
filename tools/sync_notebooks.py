@@ -13,7 +13,7 @@
 import argparse, json, pathlib, subprocess, sys
 
 ROOT = pathlib.Path(__file__).parent.parent
-SRC = pathlib.Path.home() / "Projects/business/books/phonetics-research-statistics"
+SRC = pathlib.Path.home() / "Projects/books/phonetics-research-statistics"
 OWNER_REPO = "labphonlab/phonetics-research-statistics-support"
 
 TITLES = {
