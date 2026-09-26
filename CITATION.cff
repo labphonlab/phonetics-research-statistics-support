@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "音声研究のための統計解析 Notebook"
+message: "本教材を利用した場合は、対応する書籍とこのソフトウェアを引用してください。"
+type: software
+version: 1.0.0
+date-released: 2026-09-27
+authors:
+  - family-names: Ishihara
+    given-names: Takeshi
+license: MIT
+repository-code: "https://github.com/labphonlab/phonetics-research-statistics-support"
+url: "https://github.com/labphonlab/phonetics-research-statistics-support/releases/tag/v1.0.0"

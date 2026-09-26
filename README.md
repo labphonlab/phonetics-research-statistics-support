@@ -1,7 +1,17 @@
 # 音声研究のための統計解析 — Notebook
 
+[![Validate public package](https://github.com/labphonlab/phonetics-research-statistics-support/actions/workflows/validate.yml/badge.svg)](https://github.com/labphonlab/phonetics-research-statistics-support/actions/workflows/validate.yml)
+[![Release](https://img.shields.io/github/v/release/labphonlab/phonetics-research-statistics-support)](https://github.com/labphonlab/phonetics-research-statistics-support/releases/latest)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 書籍『音声研究のための統計解析—RとColaboratoryで学ぶ実践ハンドブック』
 （音声学ライブラリ 第3巻）に対応する R Notebook です。
+
+## 正本と刊行時固定版
+
+この公開リポジトリの **main** ブランチを、コードとNotebookの最新版を管理する正本とします。刊行時点の固定版は [v1.0.0 Release](https://github.com/labphonlab/phonetics-research-statistics-support/releases/tag/v1.0.0) からZIPで取得できます。ReleaseにはSHA-256チェックサムも添付します。
+
+コード、Notebook、公開可能な合成データはMIT Licenseで公開します。参加者データ、第三者コーパス、再配布許可のない録音、購入者限定資料はこのリポジトリに含めません。購入者限定資料が必要な場合だけ、書籍に記載した別のパスワード付きZIPで提供します。
 
 ## 使い方
 
@@ -51,10 +61,7 @@ Colab の R ランタイムで動きます。パッケージのインストー�
 
 ## 書籍との対応
 
-Notebook は書籍の各章に対応します。**書籍側が正典**で、
-このリポジトリはその写しです。`tools/sync_notebooks.py` が
-書籍リポジトリから機械的に取り込み、Colabバッジを付けています。
-手でコピーしていないので、記述の食い違いが起きません。
+Notebookは書籍の各章に対応します。公開用コードとNotebookは、このリポジトリを正本として版管理します。tools/sync_notebooks.py は書籍制作元のNotebookを同期し、Colabバッジを付けるための保守用ツールです。
 
 ## ライセンス
 
