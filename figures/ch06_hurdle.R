@@ -17,8 +17,8 @@ cl <- c(fast = "速い発話", normal = "普通の速さ"); d$cond <- factor(cl[
 sm <- d %>% group_by(cond) %>% summarise(use = mean(uses_prevoice), dur = mean(prevoice_duration, na.rm = TRUE),
                                          vot = mean(VOT), n = n(), k = sum(uses_prevoice))
 print(sm)
-d$grp <- factor(ifelse(d$uses_prevoice == 1, "前有声あり（VOT＜0）", "前有声なし（VOT＞0）"),
-                levels = c("前有声あり（VOT＜0）", "前有声なし（VOT＞0）"))
+d$grp <- factor(ifelse(d$uses_prevoice == 1, "前voicingあり（VOT＜0）", "前voicingなし（VOT＞0）"),
+                levels = c("前voicingあり（VOT＜0）", "前voicingなし（VOT＞0）"))
 pA <- ggplot(d, aes(VOT, fill = grp)) +
   geom_histogram(binwidth = 8, boundary = 0, colour = "white", linewidth = 0.2) +
   geom_vline(data = sm, aes(xintercept = vot), linetype = "dashed", linewidth = 0.6) +
