@@ -1,6 +1,6 @@
 # 図の再生成スクリプト
 
-書籍の図22点（画像）を、Rで再生成するスクリプトです。本文・ノートブックと同じ擬似データ（`vot_data.R`、`set.seed(42)`）や、
+書籍の図24点（画像）を、Rで再生成するスクリプトです。本文・ノートブックと同じ擬似データ（`vot_data.R`、`set.seed(42)`）や、
 各章のコードと同じ設定で描いています。図は白黒印刷でも読めるよう、色ではなく濃淡・線種・形で区別してあります。
 
 ## 使い方
@@ -16,7 +16,7 @@ source("figures/ch05_speaker_lines.R")   # 図5-1
 - 日本語フォントは、macOSのヒラギノがあればそれを、なければGoogle FontsのNoto Sans JPを使います（ネット接続が必要）。
   Colabでも動きます。
 - 必要なパッケージ: `tidyverse`、`ggplot2`、`showtext`、`sysfonts`、`ragg`、`lme4`、`lmerTest`、`emmeans`、`mgcv`、
-  `itsadug`、`MASS`、`phonTools`、`e1071`、`brms`。第8章の図は `brms` でモデルを当てるため、数分かかります。
+  `itsadug`、`MASS`、`phonTools`、`e1071`、`brms`。第8章の図は `brms` でモデルを当てるため、時間がかかります（図8-1・8-3・8-4は各数分、図8-2は9回の当てはめで10〜20分。図8-2は結果をcsvに保存してあるので、通常は再当てはめしません。やり直すときは `FORCE_REFIT=1` を付けて実行します）。
 - 乱数は固定してあるので、同じ環境なら同じ図になります。パッケージのバージョンが違うと、細部が変わることがあります。
 
 ## 図とスクリプトの対応
@@ -33,7 +33,9 @@ source("figures/ch05_speaker_lines.R")   # 図5-1
 | 図6-2 | `ch06_marginal_vs_conditional.png` | `ch06_logistic_curve.R` |
 | 図7-1 | `ch07_gamm_fit.png` | `ch07_gamm_fit.R` |
 | 図8-1 | `ch08_prior_posterior.png` | `ch08_prior_posterior.R` |
-| 図8-2 | `ch08_prior_sensitivity.png` | `ch08_prior_sensitivity.R` |
+| 図8-2 | `ch08_prior_sensitivity.png` | `ch08_prior_sensitivity.R`（9回の当てはめ。結果は同名のcsvに保存し、あれば再利用） |
+| 図8-3 | `ch08_trace.png` | `ch08_diagnostics.R` |
+| 図8-4 | `ch08_ppcheck.png` | `ch08_diagnostics.R` |
 | 図9-1 | `ch09_same_mean_diff_sd.png` | `ch09_same_mean_diff_sd.R` |
 | 図10-1 | `ch10_identification_curves.png` | `ch10_identification_curves.R` |
 | 図10-2 | `ch10_listener_curves.png` | `ch10_identification_curves.R` |
