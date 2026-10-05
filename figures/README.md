@@ -1,6 +1,6 @@
 # 図の再生成スクリプト
 
-書籍の図39点（画像）を、Rで再生成するスクリプトです。本文・ノートブックと同じ擬似データ（`vot_data.R`、`set.seed(42)`）や、
+書籍の図40点（画像）を、Rで再生成するスクリプトです。本文・ノートブックと同じ擬似データ（`vot_data.R`、`set.seed(42)`）や、
 各章のコードと同じ設定で描いています。図は白黒印刷でも読めるよう、色ではなく濃淡・線種・形で区別してあります。
 
 ## 使い方
@@ -23,6 +23,7 @@ source("figures/ch05_speaker_lines.R")   # 図5-1
 
 | 図 | 画像 | 再生成スクリプト |
 |---|---|---|
+| 図1-1 | `ch01_violin.png` | `ch01_violin.R` |
 | 図2-1 | `ch02_vot_hist.png` | `ch02_vot_hist.R` |
 | 図2-2 | `ch02_vowel_norm.png` | `ch02_vowel_norm.R` |
 | 図2-3 | `ch02_freq_scales.png` | `ch02_freq_scales.R` |
